@@ -14,10 +14,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // protect all endpoints in this app
         http.authorizeRequests()
                 // protect the endpoint. only accessible to authenticated users
-                .antMatchers("api/")
+                .antMatchers("api/A")
                 .authenticated()
                 .and()
-                // configute OAuth2 Resoucer Server support
+                // configure OAuth2 Resource Server support
                 .oauth2ResourceServer()
                 // enable JWT-encoded bearer token support
                 .jwt();

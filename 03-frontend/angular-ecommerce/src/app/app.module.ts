@@ -28,6 +28,9 @@ import myAppConfig from './config/my-app-config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { ActivityDetailsComponent } from './components/activity-details/activity-details.component';
+import { ActivityPurchaseResultComponent } from './components/activity-purchase-result/activity-purchase-result.component';
+import { ActivityOrderComponent } from './components/activity-order/activity-order.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (injector) => {
@@ -39,6 +42,11 @@ const oktaConfig = Object.assign({
 }, myAppConfig.oidc);
 
 const routes: Routes = [
+   // seckill service
+   {path: 'seckill/orderQuery/:id', component: ActivityOrderComponent},
+   {path: 'buy/:user/:id', component: ActivityPurchaseResultComponent},
+   {path: 'seckill/:id', component: ActivityDetailsComponent},
+
   // OktaAuthGuard: protected route, only logged user can get access
    {path: 'order-history', component: OrderHistoryComponent, canActivate: [ OktaAuthGuard ]},
    {path: 'members', component: MembersPageComponent, canActivate: [ OktaAuthGuard ]},
@@ -71,7 +79,10 @@ const routes: Routes = [
     LoginComponent,
     LoginStatusComponent,
     MembersPageComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    ActivityDetailsComponent,
+    ActivityPurchaseResultComponent,
+    ActivityOrderComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

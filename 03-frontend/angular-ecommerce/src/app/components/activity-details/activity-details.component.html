@@ -1,0 +1,22 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <img src="assets/images/products/books/book-luv2code-1000.png" class="detail-img">
+
+        <h3>{{ activity.name }}</h3>
+        <div class="price">{{ activity.seckillPrice | currency:'USD' }}</div>
+        
+        <div class="text-center">
+            <a routerLink="/buy/1234/{{ activity.id }}">Purchase Immediately</a>
+            
+            <!-- <button type="submit" class="btn btn-info">Purchase Immediately</button> -->
+        </div>
+
+        <hr>
+        <h4>Description</h4>
+        <p>{{ activity.name }}</p>
+
+        <a routerLink="/products" class="mt-5">Back to Product Lists</a>
+
+    </div>
+</div>

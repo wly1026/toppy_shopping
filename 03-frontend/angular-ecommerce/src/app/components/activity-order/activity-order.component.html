@@ -1,0 +1,32 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <img src="assets/images/products/books/book-luv2code-1000.png" class="detail-img">
+
+        <hr>
+        <h4>Order Information</h4>
+        <p>{{ order.orderNo }}</p>
+
+        
+        <div class="detail-section">
+            <span>Order Status: </span>
+            <div [ngSwitch]=order.orderStatus>
+                <span *ngSwitchCase="0">Out of stock</span>
+                <span *ngSwitchCase="1">Waiting for payment</span>
+                <span *ngSwitchCase="2">Waiting for delivery</span>
+                <span *ngSwitchCase="99">Pay time Exceeds, order is closed</span>
+            </div>
+            <p></p>
+            <p>Seckill Activity: {{activity.name}}</p>
+            <p>Create Time: {{order.createTime}}</p>
+            <p>Price:{{activity.seckillPrice}}</p>
+                                
+            <div *ngIf="order.orderStatus==1">
+                <div class="text-center">
+                    <button (click)="onSubmit()" class="btn btn-primary btn-sm">Purchase</button>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
